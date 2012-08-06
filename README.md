@@ -26,20 +26,32 @@ $(document).ready(function(){
 </script>
 ```
 
+Example call by changing the parameters:
+```html
+<div class="calculator"></div>
+<script type="text/javascript">
+$(document).ready(function(){
+   var langs = {value: 'Valor', clear: 'Limpar', backspace: 'Voltar'};
+   $('.calculator').blackCalculator({type:'advanced', allowKeyboard:true, css:'styles/', language:langs});
+});
+</script>
+```
+
 ## Options
 Now know all the parameters to use blackCalculator:
 
   Name                | Type                                  | Default          | Description
 ----------------------|---------------------------------------|------------------|-------------
- type                 | String                                | 'simple'         | It is a string representing the version of the calculator that the plugin should display: simple or advanced. Possible values ​​are "simple" and "advanced".
- allowKeyboard        | Boolean                               | false            | Specifies whether the plugin should let the user "type" (the plugin validates entries) in the calculator or just allows it to click the buttons on the calculator.
- cssManual            | Boolean                               | false            | Specifies whether the plug-in must put the files automatically or not, and allows files ".css" and ".htc" are placed manually.
- css                  | String                                | 'css/'           | If the files ".css" and ".htc" are placed automatically by the plugin, this parameter defines the folder where the plugin will scan the files.
- language             | Array                                 | {value: 'Value', backspace: 'Backspace', clear: 'Clear'}           | To set a few words of the calculator plugin search this array.
+ `type`               | String                                | 'simple'         | It is a string representing the version of the calculator that the plugin should display: simple or advanced. Possible values ​​are "simple" and "advanced".
+ `allowKeyboard`      | Boolean                               | false            | Specifies whether the plugin should let the user "type" (the plugin validates entries) in the calculator or just allows it to click the buttons on the calculator.
+ `cssManual`          | Boolean                               | false            | Specifies whether the plug-in must put the files automatically or not, and allows files ".css" and ".htc" are placed manually.
+ `css`                | String                                | 'css/'           | If the files ".css" and ".htc" are placed automatically by the plugin, this parameter defines the folder where the plugin will scan the files.
+ `language`           | Object                                | {value: 'Value', backspace: 'Backspace', clear: 'Clear'}           | To set a few words of the calculator plugin search this object.
 
-## More Information
+## Examples
 
 http://blackhauz.com.br/blog/wp-content/examples/black_calculator
+
 http://blackhauz.com.br/blog/2012/07/calculadora-em-javascript-jquery
 
 ## License
@@ -53,6 +65,7 @@ Dual licensed under the MIT or GPL Version 2 licenses
 Credits to PHPJS project! Two functions have helped my development:
 
 http://phpjs.org/functions/in_array:432
+
 http://phpjs.org/functions/strpos:545
 
 Credits to CSS3 PIE project: http://css3pie.com/
