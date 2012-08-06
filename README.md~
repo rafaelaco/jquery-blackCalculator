@@ -35,7 +35,7 @@ Now know all the parameters to use blackCalculator:
  allowKeyboard        | Boolean                               | false            | Specifies whether the plugin should let the user "type" (the plugin validates entries) in the calculator or just allows it to click the buttons on the calculator.
  cssManual            | Boolean                               | false            | Specifies whether the plug-in must put the files automatically or not, and allows files ".css" and ".htc" are placed manually.
  css                  | String                                | 'css/'           | If the files ".css" and ".htc" are placed automatically by the plugin, this parameter defines the folder where the plugin will scan the files.
- language             | Array                                 | {value: 'Value', backspace: 'Backspace', clear: 'Clear'}           | To set a few words of the calculator plugin search this array.
+ language             | Array                                 | 'css/'           | If the files ".css" and ".htc" are placed automatically by the plugin, this parameter defines the folder where the plugin will scan the files.
 
 ## More Information
 
