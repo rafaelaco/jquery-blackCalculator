@@ -30,7 +30,7 @@
 			styles += '<!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="' + settings.css
 			+ 'black_calculator_ie.css" />';
 			styles += '<style type="text/css">';
-			styles += '.calculator a, .calculator, .calculator form input[type=text] { behavior:url("' + settings.css
+			styles += '.blackCalculator a, .blackCalculator, .blackCalculator form input[type=text] { behavior:url("' + settings.css
 			+ 'PIE.htc"); position:relative; }';
 			styles += '</style><![endif]-->';
 			
