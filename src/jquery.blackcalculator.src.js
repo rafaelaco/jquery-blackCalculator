@@ -3,7 +3,8 @@
  * @name jquery.calculator.js
  * @description Calculator
  * @author Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
- * @version beta
+ * @version 1.0
+ * @update March 25, 2013
  * @date July 20, 2012
  * @copyright (c) 2012 Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
  * @license Dual licensed under the MIT or GPL Version 2 licenses
@@ -127,10 +128,16 @@
 		if (settings.allowKeyboard) {
 			$('.blackCalculator').keypress(function(event) {
 				var button = String.fromCharCode(event.charCode);
+				var code = event.charCode;
 				var value = $('#blackCalculator').val();
 				
-				if (!inArray(whiteList, button)) {
-					return false;
+				// if press enter
+				if (code == 13) {
+					$('.blackCalculator a[rel="="]').trigger('click');
+				} else {
+					if (!inArray(whiteList, button)) {
+						return false;
+					}
 				}
 			});
 		} else {

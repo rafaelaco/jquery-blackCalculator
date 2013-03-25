@@ -1,4 +1,4 @@
-blackCalculator BETA
+blackCalculator 1.0
 © Copyright 2012 Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
 
 ============================== License ==================================

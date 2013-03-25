@@ -1,4 +1,4 @@
-# blackCalculator BETA
+# blackCalculator 1.0
 
 blackCalculator is a jQuery plugin for create a calculator. It supports
 CSS customization, easy translation, two options of calculators, cross-browser,
@@ -10,7 +10,7 @@ First, include all the dependencies in your head tag:
 
 ```html
 <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="jquery.blackcalculator.beta.min.js"></script>
+<script type="text/javascript" src="jquery.blackcalculator-1.0.min.js"></script>
 ```
 
 Make sure that: black_calculator.css, black_calculator_ie.css and PIE.htc are inside the folder "css/" (you can change the folder with the parameter called "css")
