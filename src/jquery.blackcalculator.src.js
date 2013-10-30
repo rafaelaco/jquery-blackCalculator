@@ -20,9 +20,9 @@
 		
 		// whitelist
 		if (settings.type == 'advanced') {
-			var whiteList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/', '(', ')', '^', '%'];
+			var whiteList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/', '(', ')', '^', '%', '.', ','];
 		} else {
-			var whiteList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/'];
+			var whiteList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/', '.', ','];
 		}
 		
 		// put CSS elements in head
@@ -167,6 +167,7 @@
 					try {
 						// ^ replaced with Math.pow
 						var powPattern = /\d+\^\d+/;
+						value = value.split(',').join('.');
 						while (strpos(value, '^', 0)) {
 							if (powPattern.test(value)) {
 								var elements = String(value.match(powPattern));
@@ -233,7 +234,12 @@
 						
 						$('#blackCalculator').val(eval(value));
 					} catch (err) {
-						alert(err.message);
+						if (settings.language.error) {
+							alert(settings.language.error);
+						}
+						else {
+							alert(err.message);
+						}
 					}
 				}
 			}
