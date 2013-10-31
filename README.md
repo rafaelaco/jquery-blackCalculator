@@ -1,4 +1,4 @@
-# blackCalculator 1.0
+# blackCalculator 1.1
 
 blackCalculator is a jQuery plugin for create a calculator. It supports
 CSS customization, easy translation, two options of calculators, cross-browser,
@@ -53,6 +53,10 @@ Now know all the parameters to use blackCalculator:
 http://blackhauz.com.br/blog/wp-content/examples/black_calculator
 
 http://blackhauz.com.br/blog/2012/07/calculadora-em-javascript-jquery
+
+## Changelog
+
+blackCalculator 1.1 - Added use calculated value to an input.
 
 ## License
 
