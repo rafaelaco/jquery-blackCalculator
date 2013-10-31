@@ -3,8 +3,10 @@
  * @name jquery.calculator.js
  * @description Calculator
  * @author Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
- * @version 1.0
+ * @author Glauber Portella - http://www.desenvolve4web.com/ - version 1.1
+ * @version 1.1
  * @update March 25, 2013
+ * @update October 31, 2013 - Glauber Portella added use calculator value to input field
  * @date July 20, 2012
  * @copyright (c) 2012 Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
  * @license Dual licensed under the MIT or GPL Version 2 licenses
@@ -12,11 +14,11 @@
  */
 (function($)
 {
-    // ## public functions
-    
-    // primary function
-    $.fn.blackCalculator = function(options) {
-        var settings = $.extend({}, $.fn.blackCalculator.defaults, options);
+	// ## public functions
+	
+	// primary function
+	$.fn.blackCalculator = function(options) {
+		var settings = $.extend({}, $.fn.blackCalculator.defaults, options);
 		
 		// whitelist
 		if (settings.type == 'advanced') {
@@ -24,6 +26,7 @@
 		} else {
 			var whiteList = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '+', '*', '/'];
 		}
+
 		
 		// put CSS elements in head
 		if (!settings.cssManual) {
@@ -37,18 +40,22 @@
 			
 			$('head').append(styles);
 		}
-        
-        // put itens inside element
-        var form = '<form method="post" action="javascript:void(0)" id="blackCalculatorForm"><fieldset>';
-		form += '<label for="blackCalculator">' + settings.language.value + '</label>';
-        form += '<input type="text" name="blackCalculator" id="blackCalculator"/></fieldset></form>';
-        
-        $(this).addClass('blackCalculator');
-        $(this).prepend(form);
 		
+		// put itens inside element
+		var form = '<form method="post" action="javascript:void(0)" id="blackCalculatorForm"><fieldset>';
+		form += '<label for="blackCalculator">' + settings.language.value + '</label>';
+		form += '<input type="text" name="blackCalculator" id="blackCalculator"/></fieldset></form>';
+		
+		$(this).addClass('blackCalculator');
+		$(this).prepend(form);
+		
+		if (settings.inputField) {
+			$(this).css({'min-height': '350px'});
+		}
+
 		// line 1
 		var lines = '<a href="javascript:void(0)" title="' + settings.language.backspace
-		+ '" style="width:58px; margin:0;" rel="<">&lArr;</a>';
+			+ '" style="width: 58px; margin:0;" rel="<">&lArr;</a>';
 		
 		if (settings.type == 'advanced') {
 			lines += '<a href="javascript:void(0)" title="' + settings.language.clear + '" rel="c">C</a>';
@@ -61,8 +68,8 @@
 		
 		// line 2
 		lines += '<a href="javascript:void(0)" title="7" style="margin:0;" rel="7">7</a>';
-        lines += '<a href="javascript:void(0)" title="8" rel="8">8</a>';
-        lines += '<a href="javascript:void(0)" title="9" rel="9">9</a>';
+		lines += '<a href="javascript:void(0)" title="8" rel="8">8</a>';
+		lines += '<a href="javascript:void(0)" title="9" rel="9">9</a>';
 		
 		if (settings.type == 'advanced') {
 			lines += '<a href="javascript:void(0)" title="/" rel="/">/</a>';
@@ -73,8 +80,8 @@
 		
 		// line 3
 		lines += '<a href="javascript:void(0)" title="4" style="margin:0;" rel="4">4</a>';
-        lines += '<a href="javascript:void(0)" title="5" rel="5">5</a>';
-        lines += '<a href="javascript:void(0)" title="6" rel="6">6</a>';
+		lines += '<a href="javascript:void(0)" title="5" rel="5">5</a>';
+		lines += '<a href="javascript:void(0)" title="6" rel="6">6</a>';
 		
 		if (settings.type == 'advanced') {
 			lines += '<a href="javascript:void(0)" title="*" rel="*">*</a>';
@@ -85,8 +92,8 @@
 		
 		// line 4
 		lines += '<a href="javascript:void(0)" title="1" style="margin:0;" rel="1">1</a>';
-        lines += '<a href="javascript:void(0)" title="2" rel="2">2</a>';
-        lines += '<a href="javascript:void(0)" title="3" rel="3">3</a>';
+		lines += '<a href="javascript:void(0)" title="2" rel="2">2</a>';
+		lines += '<a href="javascript:void(0)" title="3" rel="3">3</a>';
 		
 		if (settings.type == 'advanced') {
 			lines += '<a href="javascript:void(0)" title="-" rel="-">-</a>';
@@ -94,7 +101,7 @@
 			lines += '<a href="javascript:void(0)" title="-" rel="-" style="width:57px;">-</a>';
 		}
 		
-        lines += '<div class="clear"></div>';
+		lines += '<div class="clear"></div>';
 		
 		// line 5
 		if (settings.type == 'advanced') {
@@ -103,7 +110,7 @@
 			lines += '<a href="javascript:void(0)" title="0" rel="0" style="margin:0;">0</a>';
 		}
 		
-        lines += '<a href="javascript:void(0)" title="," rel=",">,</a>';
+		lines += '<a href="javascript:void(0)" title="," rel=",">,</a>';
 		
 		if (settings.type == 'simple') {
 			lines += '<a href="javascript:void(0)" title="=" rel="=">=</a>';
@@ -120,8 +127,13 @@
 			'position:absolute; bottom:1px; right:14px;">=</a>';
 		}
 		
-        lines += '<div class="clear"></div>';
+
+		if (settings.inputField) {
+			lines += '<a href="javascript:void(0)" style="width: 60px; margin: 0" rel="u" title="' + settings.language.use + '">' + settings.language.use + '</a>';
+		}
 		
+		lines += '<div class="clear"></div>';
+
 		$(this).append(lines);
 		
 		// calculator actions
@@ -163,6 +175,11 @@
 					$('#blackCalculator').val(value + '%');
 				} else if (button == ',') {
 					$('#blackCalculator').val(value + '.');
+				} else if (button == 'u') {
+					// transfere valor para input
+					if (settings.inputField) {
+						settings.inputField.val(value);
+					}
 				} else if (button == '=') {
 					try {
 						// ^ replaced with Math.pow
@@ -238,27 +255,28 @@
 				}
 			}
 		});
-        
-        return this;
-    };
-    
-    $.fn.blackCalculator.defaults = {
-        type: 'simple',
-        allowKeyboard: false,
+		
+		return this;
+	};
+	
+	$.fn.blackCalculator.defaults = {
+		type: 'simple',
+		allowKeyboard: false,
 		cssManual: false,
 		css: 'css/',
-        language: {
-            value: 'Value',
-            backspace: 'Backspace',
-            clear: 'Clear'
-        }
-    };
-    
-    // ## private functions
-    
+		language: {
+			value: 'Value',
+			backspace: 'Backspace',
+			clear: 'Clear',
+			use: 'Use'
+		}
+	};
+	
+	// ## private functions
+	
 	// http://phpjs.org/functions/in_array:432
 	function inArray(haystack, needle)
-    {
+	{
 		var length = haystack.length;
 		for(var i = 0; i < length; i++) {
 			if(haystack[i] == needle) return true;
@@ -268,7 +286,7 @@
 	
 	// http://phpjs.org/functions/strpos:545
 	function strpos(haystack, needle, offset)
-    {
+	{
 		var i = (haystack + '').indexOf(needle, (offset || 0));
 		return i === -1 ? false : i;
 	};
