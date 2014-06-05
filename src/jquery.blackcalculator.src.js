@@ -3,12 +3,11 @@
  * @name jquery.calculator.js
  * @description Calculator
  * @author Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
- * @version 1.0
- * @update March 25, 2013
+ * @version 1.0.1
+ * @update June 05, 2014
  * @date July 20, 2012
  * @copyright (c) 2012 Rafael Carvalho Oliveira - http://www.blackhauz.com.br/
  * @license Dual licensed under the MIT or GPL Version 2 licenses
- * @example http://blackhauz.com.br/blog/wp-content/examples/black_calculator
  */
 (function($)
 {
