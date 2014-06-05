@@ -10,7 +10,7 @@ First, include all the dependencies in your head tag:
 
 ```html
 <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
-<script type="text/javascript" src="jquery.blackcalculator-1.0.min.js"></script>
+<script type="text/javascript" src="jquery.blackcalculator-1.0.1.min.js"></script>
 ```
 
 Make sure that: black_calculator.css, black_calculator_ie.css and PIE.htc are inside the folder "css/" (you can change the folder with the parameter called "css")
@@ -46,13 +46,17 @@ Now know all the parameters to use blackCalculator:
  `allowKeyboard`      | Boolean                               | false            | Specifies whether the plugin should let the user "type" (the plugin validates entries) in the calculator or just allows it to click the buttons on the calculator.
  `cssManual`          | Boolean                               | false            | Specifies whether the plug-in must put the files automatically or not, and allows files ".css" and ".htc" are placed manually.
  `css`                | String                                | 'css/'           | If the files ".css" and ".htc" are placed automatically by the plugin, this parameter defines the folder where the plugin will scan the files.
- `language`           | Object                                | {value: 'Value', backspace: 'Backspace', clear: 'Clear'}           | To set a few words of the calculator plugin search this object.
+ `language`           | Object                                | {value: 'Value', backspace: 'Backspace', clear: 'Clear', error: 'Error message' }           | To set a few words of the calculator plugin search this object.
 
 ## Examples
 
-http://blackhauz.com.br/blog/wp-content/examples/black_calculator
+Folders: example_1 and example_2
 
-http://blackhauz.com.br/blog/2012/07/calculadora-em-javascript-jquery
+## Changelog
+
+blackCalculator 1.0.1 - Enter comma from a keyboard. Custom error messages (issue #2) - Thanks a lot Svechnikov (Sergey) for that code!
+blackCalculator 1.0 - Press enter action (issue #1)
+
 
 ## License
 
