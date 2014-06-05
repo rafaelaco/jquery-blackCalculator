@@ -55,6 +55,7 @@ Folders: example_1 and example_2
 ## Changelog
 
 blackCalculator 1.0.1 - Enter comma from a keyboard. Custom error messages (issue #2) - Thanks a lot Svechnikov (Sergey) for that code!
+
 blackCalculator 1.0 - Press enter action (issue #1)
 
 
